@@ -1,0 +1,7 @@
+FROM postgres:17.6-alpine
+
+ENV POSTGRES_DB=demodb
+ENV POSTGRES_USER=demodb
+ENV POSTGRES_PASSWORD=demodb
+
+EXPOSE 5432
