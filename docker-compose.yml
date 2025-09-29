@@ -1,0 +1,22 @@
+name: posting-system
+
+services:
+  db:
+    image: postgres:17.6-alpine 
+    container_name: postgres-db
+    environment:
+      - POSTGRES_DB=postdb
+    env_file:
+      - .env.postgress
+    ports:
+      - 5432:5432
+    volumes:
+      - dbdata:/var/lib/postgresql/data
+    networks:
+      - postnet
+    
+volumes:
+  dbdata:
+
+networks:
+  postnet:
