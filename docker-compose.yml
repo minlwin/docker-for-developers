@@ -14,7 +14,22 @@ services:
       - dbdata:/var/lib/postgresql/data
     networks:
       - postnet
-    
+
+  backend:
+    build:
+      context: ./post-api
+      dockerfile: Dockerfile
+    container_name: post-api
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    env_file:
+      - .env.postgress
+    ports:
+      - 8080:8080
+    networks:
+      - postnet
+
+
 volumes:
   dbdata:
 
